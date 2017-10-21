@@ -13,7 +13,7 @@ namespace FinansuSistema
     public partial class Form1 : Form
     {
         static string conn_info = "Server=localhost;Database=testing;Uid=root;pwd=LabasAsKebabas";
-
+        int numb = 0;
         public Form1()
         {
          
@@ -59,6 +59,7 @@ if (checkDB_Conn() != true)
 
                 con.Close();
             }
+            
         }
 
         private void Done()
@@ -163,6 +164,34 @@ if (checkDB_Conn() != true)
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string cat = comboBox1.SelectedItem == null ? String.Empty : comboBox1.SelectedItem.ToString();
+            string item = textBox1.Text.ToString();
+            float price = (float)numericUpDown1.Value;
+            int amount = (int)numericUpDown2.Value;
+            string date = dateTimePicker1.Value.ToString();
+
+            if (cat == "" || item == null || price == 0)
+            {
+                textBox3.Visible = true;
+                timer1.Start();
+                textBox3.Text = "Užpildykite visus laukus!";
+                return;
+
+            }
+            else
+            {
+               numb++;
+                textBox2.AppendText("#" + numb + " Kategorija: " + cat + " - " + "Pirkinys: " + item + " " + amount + " x " + price + " = " + string.Format("{0:0.00}", (float)amount * (float)price) + " €    " + date + "\n");
+            }
+            }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBox3.Visible = false;
+            timer1.Stop();
         }
     }
 }

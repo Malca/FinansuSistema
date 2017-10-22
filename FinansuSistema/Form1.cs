@@ -229,12 +229,30 @@ namespace FinansuSistema
             }
             item.Close();
         }
-        
+
+        public static string FirstCharToUpper(string input)
+        {
+            if (input != "")
+            {
+                return input.First().ToString().ToUpper() + input.Substring(1);
+            }
+            else
+            {
+                return "";
+            }
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             textBox3.Visible = false;
             timer1.Stop();
+        }
+        
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            string text = textBox1.Text;
+            textBox1.Text = FirstCharToUpper(text);
         }
     }
 }

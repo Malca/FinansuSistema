@@ -50,7 +50,7 @@ namespace FinansuSistema
             }
 
         }
-
+        
         private void Done()
         {
             tabControl1.Visible = false;
@@ -184,6 +184,7 @@ namespace FinansuSistema
 
 
                 numb++;
+                textBox2.Visible = true;
                 textBox2.AppendText("#" + numb + " Kategorija: " + cat + " - " + "Pirkinys: " + item + " " + amount + " x " + price + " = " + string.Format("{0:0.00}", (float)amount * (float)price) + " €    " + date + "\n");
                 addSourceToDB(item);
             }
@@ -217,6 +218,8 @@ namespace FinansuSistema
             //for (int i = 0; i <= count - 1; i++)
             {
                 comboBox1.Items.Add(new ComboBoxItem(record["idCategories"].ToString(), record["categoryname"].ToString()));
+                comboBox2.Items.Add(new ComboBoxItem(record["idCategories"].ToString(), record["categoryname"].ToString()));
+
             }
             record.Close();
 
@@ -226,9 +229,11 @@ namespace FinansuSistema
             while (item.Read())
             {
                 textBox1.AutoCompleteCustomSource.Add(item["text"].ToString());
+                textBox4.AutoCompleteCustomSource.Add(item["text"].ToString());
             }
             item.Close();
         }
+
 
         public static string FirstCharToUpper(string input)
         {
@@ -247,12 +252,176 @@ namespace FinansuSistema
             textBox3.Visible = false;
             timer1.Stop();
         }
-        
+
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             string text = textBox1.Text;
             textBox1.Text = FirstCharToUpper(text);
         }
+
+        private void ShowHideReportControls(object sender, EventArgs e)
+        {
+
+            if (radioButton1.Checked)
+            {
+                label12.Visible = false;
+                comboBox2.Visible = false;
+
+                label13.Visible = false;
+                textBox4.Visible = false;
+
+            }
+            else if (radioButton2.Checked)
+            {
+                label13.Visible = false;
+                textBox4.Visible = false;
+
+                label12.Visible = true;
+                comboBox2.Visible = true;
+
+
+            }
+
+            else if (radioButton3.Checked)
+            {
+                label13.Visible = true;
+                textBox4.Visible = true;
+
+                label12.Visible = false;
+                comboBox2.Visible = false;
+
+            }
+        }
+
+        private void AddDates(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string name = ((LinkLabel)sender).Name;
+
+            if (name == linkLabel1.Name.ToString())
+            {
+
+                DayOfWeek day = DateTime.Now.DayOfWeek;
+                int days = day - DayOfWeek.Monday;
+                DateTime start = DateTime.Now.AddDays(-days);
+                DateTime end = start.AddDays(6);
+                dateTimePicker2.Value = start;
+                dateTimePicker3.Value = end;
+            }
+
+            else if (name == linkLabel2.Name.ToString())
+            {
+
+                DateTime start = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                DateTime end = start.AddMonths(1).AddDays(-1);
+                dateTimePicker2.Value = start;
+                dateTimePicker3.Value = end;
+
+            }
+
+            else if (name == linkLabel3.Name.ToString())
+            {
+                DateTime start = new DateTime(DateTime.Now.Year, 1, 1);
+                DateTime end = new DateTime(DateTime.Now.Year, 12, 31);
+                dateTimePicker2.Value = start;
+                dateTimePicker3.Value = end;
+            }
+        }
+
+        private void GenerateReport(object sender, EventArgs e)
+        {
+            int count = 0;
+            float suma = 0;
+            DateTime nuo = dateTimePicker2.Value;
+            DateTime iki = dateTimePicker3.Value;
+            if (nuo > iki)
+            {
+                MessageBox.Show("Pradžios data didesnė nei pabaigos data.");
+                return;
+            }
+            MySqlConnection con = new MySqlConnection(conn_info);
+            con.Open();
+            MySqlCommand record = con.CreateCommand();
+
+            if (radioButton1.Checked)
+            {
+                record.CommandText = "SELECT * FROM entries WHERE date BETWEEN @nuo AND @iki";
+                record.Parameters.AddWithValue("@nuo", nuo);
+                record.Parameters.AddWithValue("@iki", iki);
+            }
+            if (radioButton2.Checked)
+            {
+                int catid = comboBox2.SelectedIndex;
+                string cat = comboBox2.SelectedItem == null ? String.Empty : comboBox2.SelectedItem.ToString();
+                if (cat == "")
+                {
+                    MessageBox.Show("Nepasirinkta kategorija.");
+                    return;
+                }
+
+                record.CommandText = "SELECT * FROM entries WHERE categoryid = @catid AND date BETWEEN @nuo AND @iki";
+                record.Parameters.AddWithValue("@catid", catid + 1);
+                record.Parameters.AddWithValue("@nuo", nuo);
+                record.Parameters.AddWithValue("@iki", iki);
+            }
+            if (radioButton3.Checked)
+            {
+                string name = textBox4.Text;
+                if (name == "")
+                {
+                    MessageBox.Show("Neįvestas produkto/paslaugos pavadinimas.");
+                    return;
+                }
+
+                record.CommandText = "SELECT * FROM entries WHERE name = @name AND date BETWEEN @nuo AND @iki";
+                record.Parameters.AddWithValue("@name", name);
+                record.Parameters.AddWithValue("@nuo", nuo);
+                record.Parameters.AddWithValue("@iki", iki);
+            }
+
+            MySqlDataReader item = record.ExecuteReader();
+            if (item.HasRows)
+            {
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+                while (item.Read())
+                {
+                    comboBox1.SelectedItem = item["categoryid"];
+                    string cat = comboBox1.Items[(int)item["categoryid"] - 1].ToString();
+                    int amount = (int)item["amount"];
+                    float price = (float)item["price"];
+                    float sum = amount * price;
+                    string data = string.Empty;
+                    data = DateTime.Parse(item["date"].ToString()).ToShortDateString();
+                    suma += sum;
+                    dataGridView1.Visible = true;
+                    label16.Visible = false;
+                    count++;
+                    dataGridView1.Rows.Add(count, cat, item["name"], item["amount"], item["price"] + " €", data, string.Format("{0:0.00}", (float)sum) + " €");
+
+                }
+                label17.Visible = true;
+                label17.Text = "Bendra prekių/paslaugų suma: " + suma + " €";
+            } else
+            {
+                dataGridView1.Visible = false;
+                label17.Visible = false;
+                label16.Visible = true;
+                label16.Text = "Pagal šiuos kriterijus, rezultatų nerasta.";
+
+            }
+            item.Close();
+            con.Close();
+
+
+
+        }
+
+        //private float FormatCurrency(float number)
+        //{
+        //    number = float.Parse(string.Format("{0:0.00}", (float)number));
+        //    return number;
+
+        //}
     }
 }

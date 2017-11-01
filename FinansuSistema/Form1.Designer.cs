@@ -346,9 +346,9 @@
             this.label12.Location = new System.Drawing.Point(3, 149);
             this.label12.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(127, 16);
+            this.label12.Size = new System.Drawing.Size(204, 16);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Prekių Kategorija";
+            this.label12.Text = "Prekių / Paslaugų kategorija";
             this.label12.Visible = false;
             // 
             // comboBox2
@@ -374,9 +374,9 @@
             this.label13.Location = new System.Drawing.Point(3, 206);
             this.label13.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(150, 16);
+            this.label13.Size = new System.Drawing.Size(237, 16);
             this.label13.TabIndex = 16;
-            this.label13.Text = "Prekės pavadinimas";
+            this.label13.Text = "Prekės / Paslaugos pavadinimas";
             this.label13.Visible = false;
             // 
             // textBox4
@@ -530,9 +530,9 @@
             this.label2.Location = new System.Drawing.Point(3, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 16);
+            this.label2.Size = new System.Drawing.Size(204, 16);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Prekių Kategorija";
+            this.label2.Text = "Prekių / Paslaugų kategorija";
             // 
             // comboBox1
             // 
@@ -557,9 +557,9 @@
             this.label4.Location = new System.Drawing.Point(3, 62);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 16);
+            this.label4.Size = new System.Drawing.Size(237, 16);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Prekės pavadinimas";
+            this.label4.Text = "Prekės / Paslaugos pavadinimas";
             // 
             // textBox1
             // 
@@ -717,9 +717,9 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label16.Location = new System.Drawing.Point(611, 153);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 18);
+            this.label16.Size = new System.Drawing.Size(136, 18);
             this.label16.TabIndex = 10;
-            this.label16.Text = "label16";
+            this.label16.Text = "Neatitiko kriteriju";
             this.label16.Visible = false;
             // 
             // label17
@@ -728,9 +728,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label17.Location = new System.Drawing.Point(426, 57);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(61, 18);
+            this.label17.Size = new System.Drawing.Size(107, 18);
             this.label17.TabIndex = 11;
-            this.label17.Text = "label17";
+            this.label17.Text = "Bendra suma";
             this.label17.Visible = false;
             // 
             // Form1

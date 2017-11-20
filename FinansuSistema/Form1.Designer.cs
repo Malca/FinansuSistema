@@ -32,6 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cattegory = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,8 +81,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -138,9 +138,34 @@
             this.tabPage2.Text = "Ataskaita";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(426, 57);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(107, 18);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Bendra suma";
+            this.label17.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(611, 153);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(136, 18);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Neatitiko kriteriju";
+            this.label16.Visible = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -246,6 +271,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(261, 26);
             this.dateTimePicker2.TabIndex = 13;
+            this.dateTimePicker2.Value = new System.DateTime(2017, 10, 31, 0, 0, 0, 0);
             // 
             // label11
             // 
@@ -710,28 +736,6 @@
             // 
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(611, 153);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(136, 18);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "Neatitiko kriteriju";
-            this.label16.Visible = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(426, 57);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(107, 18);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "Bendra suma";
-            this.label17.Visible = false;
             // 
             // Form1
             // 

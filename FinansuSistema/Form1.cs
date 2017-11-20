@@ -47,6 +47,8 @@ namespace FinansuSistema
                 con.Open();
                 PopulateFields(con);
                 con.Close();
+
+                dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             }
 
         }
@@ -302,11 +304,26 @@ namespace FinansuSistema
             {
 
                 DayOfWeek day = DateTime.Now.DayOfWeek;
-                int days = day - DayOfWeek.Monday;
-                DateTime start = DateTime.Now.AddDays(-days);
-                DateTime end = start.AddDays(6);
-                dateTimePicker2.Value = start;
-                dateTimePicker3.Value = end;
+
+                if (day == DayOfWeek.Sunday)
+                {
+
+                    day = day + 1;
+
+                    int days = day - DayOfWeek.Monday;
+                    DateTime start = DateTime.Now.AddDays(-days);
+                    DateTime end = start.AddDays(-6);
+                    dateTimePicker2.Value = end;
+                    dateTimePicker3.Value = start;
+                }
+                else
+                {
+                    int days = day - DayOfWeek.Monday;
+                    DateTime start = DateTime.Now.AddDays(-days);
+                    DateTime end = start.AddDays(6);
+                    dateTimePicker2.Value = start;
+                    dateTimePicker3.Value = end;
+                }
             }
 
             else if (name == linkLabel2.Name.ToString())
@@ -397,7 +414,7 @@ namespace FinansuSistema
                     dataGridView1.Visible = true;
                     label16.Visible = false;
                     count++;
-                    dataGridView1.Rows.Add(count, cat, item["name"], item["amount"], item["price"] + " €", data, string.Format("{0:0.00}", (float)sum) + " €");
+                    dataGridView1.Rows.Add(count, cat, item["name"], item["amount"], string.Format("{0:0.00}", (float)item["price"]) + " €", data, string.Format("{0:0.00}", (float)sum) + " €");
 
                 }
                 label17.Visible = true;

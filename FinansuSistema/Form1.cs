@@ -47,7 +47,8 @@ namespace FinansuSistema
                 con.Open();
                 PopulateFields(con);
                 con.Close();
-
+                tabControl1.SizeMode = TabSizeMode.Fixed;
+                tabControl1.ItemSize = new Size((tabControl1.Width - 10) / tabControl1.TabCount, 0);
                 dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             }
 
@@ -419,7 +420,9 @@ namespace FinansuSistema
                 }
                 label17.Visible = true;
                 label17.Text = "Bendra prekių/paslaugų suma: " + suma + " €";
-            } else
+                // label17.Text = "Laikotarpiu > " + dateTimePicker2.Value.ToShortDateString() +" - " + dateTimePicker3.Value.ToShortDateString() + " > Bendra prekių/paslaugų suma: " + suma + " €";
+            }
+            else
             {
                 dataGridView1.Visible = false;
                 label17.Visible = false;
@@ -432,6 +435,12 @@ namespace FinansuSistema
 
 
 
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.ItemSize = new Size((tabControl1.Width - 10) / tabControl1.TabCount, 0);
         }
 
         //private float FormatCurrency(float number)

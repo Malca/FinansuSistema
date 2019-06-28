@@ -49,11 +49,12 @@ namespace FinansuSistema
                 con.Close();
                 tabControl1.SizeMode = TabSizeMode.Fixed;
                 tabControl1.ItemSize = new Size((tabControl1.Width - 10) / tabControl1.TabCount, 0);
+                tabControl1.SelectedTab = tabPage2;
                 dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             }
 
         }
-        
+
         private void Done()
         {
             tabControl1.Visible = false;
@@ -439,8 +440,11 @@ namespace FinansuSistema
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            tabControl1.SizeMode = TabSizeMode.Fixed;
-            tabControl1.ItemSize = new Size((tabControl1.Width - 10) / tabControl1.TabCount, 0);
+            if (WindowState == FormWindowState.Normal)
+            {
+                tabControl1.SizeMode = TabSizeMode.FillToRight;
+                // tabControl1.ItemSize = new Size((tabControl1.Width - 10) / tabControl1.TabCount, 0);
+            }
         }
 
         //private float FormatCurrency(float number)

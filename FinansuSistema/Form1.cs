@@ -12,7 +12,8 @@ namespace FinansuSistema
 {
     public partial class Form1 : Form
     {
-        static string conn_info = "Server=localhost;Database=testing;Uid=root;pwd=LabasAsKebabas";
+        //static string conn_info = "Server=localhost;Database=finances;Uid=root;pwd=LabasAsKebabas";
+        static string conn_info = "Server=bizonas.serveriai.lt;Database=macalt_finance;Uid=macalt_fin;pwd=fKtjdBAD6tFv5NHd";
         int numb = 0;
         public Form1()
         {

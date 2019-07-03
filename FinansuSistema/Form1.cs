@@ -78,6 +78,7 @@ namespace FinansuSistema
                 return Text;
             }
         }
+        // Tikrina ar įmanomas prisijungimas prie duombazės ir prisijungia prie jos
         public static bool checkDB_Conn()
         {
 
@@ -139,12 +140,12 @@ namespace FinansuSistema
         {
 
         }
-
+        // Uždaro programą
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        // Uždaro programą
         private void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
@@ -154,7 +155,7 @@ namespace FinansuSistema
         {
 
         }
-
+        // Prideda naują įrašą į duombazę
         private void button2_Click_1(object sender, EventArgs e)
         {
 
@@ -194,7 +195,7 @@ namespace FinansuSistema
                 addSourceToDB(item);
             }
         }
-
+        // Palygina duombazėje esančius AutoComplete sąrašus ir prideda naujai įvestą raktažodį, jei jis dar neegzistuoja
         private void addSourceToDB(string item)
         {
             AutoCompleteStringCollection complete = textBox1.AutoCompleteCustomSource;
@@ -210,7 +211,7 @@ namespace FinansuSistema
                 textBox1.AutoCompleteCustomSource.Add(item);
             }
         }
-
+        // Užpildo dropdown listus ir autocomplete palaikančius laukus
         private void PopulateFields(MySqlConnection con)
         {
 
@@ -239,7 +240,7 @@ namespace FinansuSistema
             item.Close();
         }
 
-
+        // Pakeičia duoto lauko teksto pirmąją raidę didžiąja
         public static string FirstCharToUpper(string input)
         {
             if (input != "")
@@ -258,13 +259,13 @@ namespace FinansuSistema
             timer1.Stop();
         }
 
-
+        // Pakeičia textBox1 pirmą įvesto teksto raidę į didžiąją
         private void textBox1_Leave(object sender, EventArgs e)
         {
             string text = textBox1.Text;
             textBox1.Text = FirstCharToUpper(text);
         }
-
+        // F-ja parodo arba paslepia formos laukus priklausomai nuo pažymėto radioButton
         private void ShowHideReportControls(object sender, EventArgs e)
         {
 
@@ -298,7 +299,7 @@ namespace FinansuSistema
 
             }
         }
-
+        // F-ja sugeneruoja datas priklausomai nuo pasirinkimo (pvz Šią savaitę, Šį mėnesį, Šiais metais)
         private void AddDates(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string name = ((LinkLabel)sender).Name;
@@ -347,13 +348,13 @@ namespace FinansuSistema
                 dateTimePicker3.Value = end;
             }
         }
-
+        //              F-ja generuojanti ataskaitą
         private void GenerateReport(object sender, EventArgs e)
         {
             int count = 0;
             float suma = 0;
-            DateTime nuo = dateTimePicker2.Value;
-            DateTime iki = dateTimePicker3.Value;
+            DateTime nuo = dateTimePicker2.Value;   // Gaunama pradžios data
+            DateTime iki = dateTimePicker3.Value;   // Gaunama pabaigos data
             if (nuo > iki)
             {
                 MessageBox.Show("Pradžios data didesnė nei pabaigos data.");
@@ -438,7 +439,7 @@ namespace FinansuSistema
 
 
         }
-
+        // This one supposed to resize the tabControl1, but idk if it does that
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)

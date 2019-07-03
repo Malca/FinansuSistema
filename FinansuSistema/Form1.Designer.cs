@@ -35,13 +35,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cattegory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -81,6 +74,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cattegory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -182,54 +182,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(689, 441);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.Visible = false;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "# ID";
-            this.id.Name = "id";
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id.Width = 40;
-            // 
-            // cattegory
-            // 
-            this.cattegory.HeaderText = "Produktų kategorija";
-            this.cattegory.Name = "cattegory";
-            this.cattegory.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cattegory.Width = 130;
-            // 
-            // product
-            // 
-            this.product.HeaderText = "Pirkinys";
-            this.product.Name = "product";
-            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.product.Width = 118;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "Kiekis";
-            this.amount.Name = "amount";
-            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.amount.Width = 50;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Kaina";
-            this.price.Name = "price";
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.price.Width = 80;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Data";
-            this.date.Name = "date";
-            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.date.Width = 107;
-            // 
-            // sum
-            // 
-            this.sum.HeaderText = "Suma";
-            this.sum.Name = "sum";
-            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // flowLayoutPanel2
             // 
@@ -434,11 +386,11 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(262, 154);
+            this.radioButton3.Location = new System.Drawing.Point(48, 177);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(68, 17);
+            this.radioButton3.Size = new System.Drawing.Size(107, 17);
             this.radioButton3.TabIndex = 7;
-            this.radioButton3.Text = "Produktą";
+            this.radioButton3.Text = "Pirkinį / paslaugą";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.ShowHideReportControls);
             // 
@@ -447,9 +399,9 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(139, 154);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(117, 17);
+            this.radioButton2.Size = new System.Drawing.Size(162, 17);
             this.radioButton2.TabIndex = 7;
-            this.radioButton2.Text = "Produktų kategoriją";
+            this.radioButton2.Text = "Pirkinių / paslaugų kategoriją";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.ShowHideReportControls);
             // 
@@ -515,11 +467,10 @@
             // 
             // textBox2
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox2.Location = new System.Drawing.Point(597, 98);
+            this.textBox2.Location = new System.Drawing.Point(597, 124);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -737,6 +688,54 @@
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // id
+            // 
+            this.id.HeaderText = "# ID";
+            this.id.Name = "id";
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id.Width = 40;
+            // 
+            // cattegory
+            // 
+            this.cattegory.HeaderText = "Pirkinio / paslaugos kategorija";
+            this.cattegory.Name = "cattegory";
+            this.cattegory.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cattegory.Width = 130;
+            // 
+            // product
+            // 
+            this.product.HeaderText = "Pirkinys";
+            this.product.Name = "product";
+            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.product.Width = 118;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "Kiekis";
+            this.amount.Name = "amount";
+            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.amount.Width = 50;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Kaina";
+            this.price.Name = "price";
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.price.Width = 80;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Data";
+            this.date.Name = "date";
+            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.date.Width = 107;
+            // 
+            // sum
+            // 
+            this.sum.HeaderText = "Suma";
+            this.sum.Name = "sum";
+            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -814,6 +813,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cattegory;
         private System.Windows.Forms.DataGridViewTextBoxColumn product;
@@ -821,8 +822,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn sum;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
     }
 }
 

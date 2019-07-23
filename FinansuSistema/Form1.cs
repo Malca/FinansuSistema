@@ -13,7 +13,7 @@ namespace FinansuSistema
     public partial class Form1 : Form
     {
         //static string conn_info = "Server=localhost;Database=finances;Uid=root;pwd=LabasAsKebabas";
-        static string conn_info = "Server=bizonas.serveriai.lt;Database=macalt_finance;Uid=macalt_fin;pwd=fKtjdBAD6tFv5NHd";
+        static string conn_info = "Server=bizonas.serveriai.lt;Database=macalt_finance;Uid=macalt_fin;pwd=fKtjdBAD6tFv5NHd;charset=utf8mb4";
         int numb = 0;
         public Form1()
         {
@@ -45,6 +45,7 @@ namespace FinansuSistema
                     "Prekės augintiniams"
                 };
                 MySqlConnection con = new MySqlConnection(conn_info);
+                
                 con.Open();
                 PopulateFields(con);
                 con.Close();
@@ -366,7 +367,7 @@ namespace FinansuSistema
 
             if (radioButton1.Checked)
             {
-                record.CommandText = "SELECT * FROM entries WHERE date BETWEEN @nuo AND @iki";
+                record.CommandText = "SELECT * FROM entries WHERE date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE)";
                 record.Parameters.AddWithValue("@nuo", nuo);
                 record.Parameters.AddWithValue("@iki", iki);
             }
@@ -380,7 +381,7 @@ namespace FinansuSistema
                     return;
                 }
 
-                record.CommandText = "SELECT * FROM entries WHERE categoryid = @catid AND date BETWEEN @nuo AND @iki";
+                record.CommandText = "SELECT * FROM entries WHERE categoryid = @catid AND date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE)";
                 record.Parameters.AddWithValue("@catid", catid + 1);
                 record.Parameters.AddWithValue("@nuo", nuo);
                 record.Parameters.AddWithValue("@iki", iki);
@@ -394,7 +395,7 @@ namespace FinansuSistema
                     return;
                 }
 
-                record.CommandText = "SELECT * FROM entries WHERE name = @name AND date BETWEEN @nuo AND @iki";
+                record.CommandText = "SELECT * FROM entries WHERE name = @name AND date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE)";
                 record.Parameters.AddWithValue("@name", name);
                 record.Parameters.AddWithValue("@nuo", nuo);
                 record.Parameters.AddWithValue("@iki", iki);
@@ -438,6 +439,13 @@ namespace FinansuSistema
 
 
 
+        }
+
+        public static string toUTF8(string text)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(text);
+            text = Encoding.UTF8.GetString(bytes);
+            return text;
         }
         // This one supposed to resize the tabControl1, but idk if it does that
         private void Form1_SizeChanged(object sender, EventArgs e)

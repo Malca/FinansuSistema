@@ -35,6 +35,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cattegory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -74,13 +81,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cattegory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -183,6 +183,54 @@
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.Visible = false;
             // 
+            // id
+            // 
+            this.id.HeaderText = "# ID";
+            this.id.Name = "id";
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id.Width = 40;
+            // 
+            // cattegory
+            // 
+            this.cattegory.HeaderText = "Pirkinio / paslaugos kategorija";
+            this.cattegory.Name = "cattegory";
+            this.cattegory.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cattegory.Width = 130;
+            // 
+            // product
+            // 
+            this.product.HeaderText = "Pirkinys";
+            this.product.Name = "product";
+            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.product.Width = 118;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "Kiekis";
+            this.amount.Name = "amount";
+            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.amount.Width = 50;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Kaina";
+            this.price.Name = "price";
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.price.Width = 80;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Data";
+            this.date.Name = "date";
+            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.date.Width = 107;
+            // 
+            // sum
+            // 
+            this.sum.HeaderText = "Suma";
+            this.sum.Name = "sum";
+            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoSize = true;
@@ -199,7 +247,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(48, 199);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(282, 328);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(282, 336);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
             // label9
@@ -688,64 +736,18 @@
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // id
-            // 
-            this.id.HeaderText = "# ID";
-            this.id.Name = "id";
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id.Width = 40;
-            // 
-            // cattegory
-            // 
-            this.cattegory.HeaderText = "Pirkinio / paslaugos kategorija";
-            this.cattegory.Name = "cattegory";
-            this.cattegory.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cattegory.Width = 130;
-            // 
-            // product
-            // 
-            this.product.HeaderText = "Pirkinys";
-            this.product.Name = "product";
-            this.product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.product.Width = 118;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "Kiekis";
-            this.amount.Name = "amount";
-            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.amount.Width = 50;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Kaina";
-            this.price.Name = "price";
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.price.Width = 80;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Data";
-            this.date.Name = "date";
-            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.date.Width = 107;
-            // 
-            // sum
-            // 
-            this.sum.HeaderText = "Suma";
-            this.sum.Name = "sum";
-            this.sum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1134, 561);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
-            this.MinimumSize = new System.Drawing.Size(929, 600);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1150, 600);
+            this.MinimumSize = new System.Drawing.Size(1150, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Finansų Sistema";

@@ -367,7 +367,7 @@ namespace FinansuSistema
 
             if (radioButton1.Checked)
             {
-                record.CommandText = "SELECT * FROM entries WHERE date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE)";
+                record.CommandText = "SELECT * FROM entries WHERE date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE) ORDER BY date";
                 record.Parameters.AddWithValue("@nuo", nuo);
                 record.Parameters.AddWithValue("@iki", iki);
             }
@@ -381,7 +381,7 @@ namespace FinansuSistema
                     return;
                 }
 
-                record.CommandText = "SELECT * FROM entries WHERE categoryid = @catid AND date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE)";
+                record.CommandText = "SELECT * FROM entries WHERE categoryid = @catid AND date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE) ORDER BY date";
                 record.Parameters.AddWithValue("@catid", catid + 1);
                 record.Parameters.AddWithValue("@nuo", nuo);
                 record.Parameters.AddWithValue("@iki", iki);
@@ -395,7 +395,7 @@ namespace FinansuSistema
                     return;
                 }
 
-                record.CommandText = "SELECT * FROM entries WHERE name = @name AND date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE)";
+                record.CommandText = "SELECT * FROM entries WHERE name = @name AND date BETWEEN CAST(@nuo as DATE) AND CAST(@iki as DATE) ORDER BY date";
                 record.Parameters.AddWithValue("@name", name);
                 record.Parameters.AddWithValue("@nuo", nuo);
                 record.Parameters.AddWithValue("@iki", iki);

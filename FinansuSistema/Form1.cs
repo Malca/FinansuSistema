@@ -30,7 +30,7 @@ namespace FinansuSistema
             }
             else
             {
-                string[] product_cat = {
+                /* string[] product_cat = {
                     "Pieno produktai",
                     "Mėsos ir žuvies produktai",
                     "Duonos gaminiai",
@@ -43,7 +43,8 @@ namespace FinansuSistema
                     "Higienos prekės",
                     "Namų apyvokos prekės",
                     "Prekės augintiniams"
-                };
+                }; */
+
                 MySqlConnection con = new MySqlConnection(conn_info);
                 
                 con.Open();
@@ -131,7 +132,7 @@ namespace FinansuSistema
 
 
 
-
+        // For Debuging
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // MessageBox.Show(((ComboBoxItem)comboBox1.SelectedItem).Value);
@@ -194,7 +195,15 @@ namespace FinansuSistema
                 textBox2.Visible = true;
                 textBox2.AppendText("#" + numb + " Kategorija: " + cat + " - " + "Pirkinys: " + item + " " + amount + " x " + price + " = " + string.Format("{0:0.00}", (float)amount * (float)price) + " €    " + date + "\n");
                 addSourceToDB(item);
+                ResetFields();
             }
+        }
+
+        private void ResetFields()
+        {
+            textBox1.ResetText();
+            numericUpDown1.Value = (decimal)0.00;
+            numericUpDown2.Value = 1;
         }
         // Palygina duombazėje esančius AutoComplete sąrašus ir prideda naujai įvestą raktažodį, jei jis dar neegzistuoja
         private void addSourceToDB(string item)

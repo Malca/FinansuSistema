@@ -432,7 +432,7 @@ namespace FinansuSistema
 
                 }
                 label17.Visible = true;
-                label17.Text = "Bendra prekių/paslaugų suma: " + suma + " €";
+                label17.Text = "Bendra prekių/paslaugų suma: " + string.Format("{0:0.00}", suma) + " €";
                 // label17.Text = "Laikotarpiu > " + dateTimePicker2.Value.ToShortDateString() +" - " + dateTimePicker3.Value.ToShortDateString() + " > Bendra prekių/paslaugų suma: " + suma + " €";
             }
             else

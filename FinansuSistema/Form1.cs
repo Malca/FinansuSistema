@@ -12,7 +12,7 @@ namespace FinansuSistema
 {
     public partial class Form1 : Form
     {
-        // static string conn_info = "Server=localhost;Database=finances;Uid=root;pwd=LabasAsKebabas";
+        
         static string conn_info = "Server=localhost;Database=finansai;Uid=root;pwd=fortesting;charset=utf8mb4";
         int numb = 0;
         public Form1()

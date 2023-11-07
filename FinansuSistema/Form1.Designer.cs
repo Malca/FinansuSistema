@@ -257,7 +257,7 @@
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 16);
+            this.label9.Size = new System.Drawing.Size(39, 16);
             this.label9.TabIndex = 12;
             this.label9.Text = "Nuo:";
             // 
@@ -279,7 +279,7 @@
             this.label11.Location = new System.Drawing.Point(3, 60);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 16);
+            this.label11.Size = new System.Drawing.Size(27, 16);
             this.label11.TabIndex = 12;
             this.label11.Text = "Iki:";
             // 
@@ -371,7 +371,7 @@
             this.label12.Location = new System.Drawing.Point(3, 149);
             this.label12.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(204, 16);
+            this.label12.Size = new System.Drawing.Size(203, 16);
             this.label12.TabIndex = 15;
             this.label12.Text = "Prekių / Paslaugų kategorija";
             this.label12.Visible = false;
@@ -399,7 +399,7 @@
             this.label13.Location = new System.Drawing.Point(3, 206);
             this.label13.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(237, 16);
+            this.label13.Size = new System.Drawing.Size(236, 16);
             this.label13.TabIndex = 16;
             this.label13.Text = "Prekės / Paslaugos pavadinimas";
             this.label13.Visible = false;
@@ -472,7 +472,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(48, 124);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 16);
+            this.label8.Size = new System.Drawing.Size(52, 16);
             this.label8.TabIndex = 6;
             this.label8.Text = "Pagal:";
             // 
@@ -554,7 +554,7 @@
             this.label2.Location = new System.Drawing.Point(3, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 16);
+            this.label2.Size = new System.Drawing.Size(203, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Prekių / Paslaugų kategorija";
             // 
@@ -581,7 +581,7 @@
             this.label4.Location = new System.Drawing.Point(3, 62);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(237, 16);
+            this.label4.Size = new System.Drawing.Size(236, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Prekės / Paslaugos pavadinimas";
             // 
@@ -604,7 +604,7 @@
             this.label5.Location = new System.Drawing.Point(3, 118);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 16);
+            this.label5.Size = new System.Drawing.Size(141, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Kiek € sumokėjote?";
             // 
@@ -634,7 +634,7 @@
             this.label7.Location = new System.Drawing.Point(3, 174);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 16);
+            this.label7.Size = new System.Drawing.Size(159, 16);
             this.label7.TabIndex = 7;
             this.label7.Text = "Kiekis ( by default = 1)";
             // 
@@ -673,7 +673,7 @@
             this.label6.Location = new System.Drawing.Point(3, 230);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 16);
+            this.label6.Size = new System.Drawing.Size(40, 16);
             this.label6.TabIndex = 7;
             this.label6.Text = "Data";
             // 
@@ -745,6 +745,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1150, 600);
             this.MinimumSize = new System.Drawing.Size(1150, 600);

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,6 +55,13 @@ namespace FinansuSistema
                 tabControl1.ItemSize = new Size((tabControl1.Width - 10) / tabControl1.TabCount, 0);
                 tabControl1.SelectedTab = tabPage2;
                 dateTimePicker2.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
+                {
+                    Type dgvType = dataGridView1.GetType();
+                    PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                      BindingFlags.Instance | BindingFlags.NonPublic);
+                    pi.SetValue(dataGridView1, true, null);
+                }
             }
 
         }
